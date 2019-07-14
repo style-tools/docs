@@ -132,7 +132,7 @@ The stylesheet load configuration object contains the following parameters:
 | `target.after`                 | A query selector for an DOM element to insert the stylesheet after. | `String`  |
 | `target.before`                 | A query selector for an DOM element to insert the stylesheet after. | `String`  |
 | `load_timing`                 | Download timing configuration (see [timing](#) module). | `String` or `Object`  |
-| `load_timing.type`                 | Timing method type (`domReady`, `setTimeout`, `requestAnimationFrame`, `requestIdleCallback`, `inview`, `media`, `method`) | `String`  |
+| `load_timing.type`                 | Timing method type (`domReady`, `setTimeout`, `requestAnimationFrame`, `requestIdleCallback`, `inview`, `lazy`, `media`, `method`) | `String`  |
 | `load_timing.frame`                 | Frame target for method `requestAnimationFrame` | `Number`  |
 | `load_timing.timeout`                 | Timeout in seconds for methods `requestIdleCallback` and `requestAnimationFrame` | `Number`  |
 | `load_timing.media`                 | Media Query for method `media` (responsive) | `String`  |
@@ -144,6 +144,8 @@ The stylesheet load configuration object contains the following parameters:
 | `load_timing.offset.left`                 | Offset from left | `Number`  |
 | `load_timing.threshold`                 | Ratio of an elements height and width that needs to be visible for method `inview` | `Number`  |
 | `load_timing.method`                 | Method name to define on `window` to trigger the callback. | `String`  |
+| `load_timing.config`                 | Configuration to pass to `$lazy`. | `String`  |
+| `load_timing.ref`                 | `$lazy` dependency to wait for. | `String`  |
 | `render_timing`                 | CSS render timing configuration (see [timing](#) module). | `String` or `Object`  |
 | `render_timing.*`                 | See `load_timing.*` | `Object` |
 | `exec_timing`                 | Script exec timing configuration (see [timing](#) module). | `String` or `Object`  |
@@ -281,7 +283,14 @@ $async.time(
 With JSON compression it would result in the following:
 
 ```javascript
-$async.time({"2":53,"57":3000},function(){});
+$async.time({"2":53,"57":3000},function(){}); // 3000ms timeout
+```
+
+A simple `requestIdleCallback` with the default timeout:
+
+```javascript
+$async.time("requestIdleCallback", function() {});
+$async.time(53, function() {}); // compression index
 ```
 
 When using debug sources, the browser console will provide Performance API details.
