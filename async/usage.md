@@ -144,7 +144,7 @@ The stylesheet load configuration object contains the following parameters:
 | `load_timing.offset.left`                 | Offset from left | `Number`  |
 | `load_timing.threshold`                 | Ratio of an elements height and width that needs to be visible for method `inview` | `Number`  |
 | `load_timing.method`                 | Method name to define on `window` to trigger the callback. | `String`  |
-| `load_timing.config`                 | Configuration to pass to `$lazy`. | `String`  |
+| `load_timing.config`                 | Configuration to pass to `$lazy`. | `String`, `Object` or `Array`  |
 | `load_timing.ref`                 | `$lazy` dependency to wait for. | `String`  |
 | `render_timing`                 | CSS render timing configuration (see [timing](#) module). | `String` or `Object`  |
 | `render_timing.*`                 | See `load_timing.*` | `Object` |
