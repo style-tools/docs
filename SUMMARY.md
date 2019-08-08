@@ -11,6 +11,7 @@
   * [IIFE generator](async/iife-generator.md)
 
 * [$lazy](lazy/README.md)
+  * [$lazybg](lazy/lazybg.md)
 
 * [Critical CSS Generator](critical-css-generator/README.md)
   * [Usage: simple generator](critical-css-generator/simple-usage.md)
