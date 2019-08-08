@@ -4,9 +4,22 @@
 
 ```javascript
 $lazy(
-   selector,
-   callback /* optional: a custom in-view callback */
-);	
+   selector, /* string, Node, NodeList or observer config object */
+   inview, /* optional: custom in-view callback */
+   observer_callback, /* optional: custom observer callback */
+   webp /* disable WebP rewrite (when using lazy+webp.js) */
+);  
+``` 
+
+Lazy loading of `background-image` in stylesheets.
+
+```javascript 
+$lazybg(
+  sheets, /* stylesheet element(s), default: document.styleSheets (all) */
+  lazy_config, /* optional: config to pass to $lazy() */
+  resolver, /* optional: JSON or javascript image resolver */
+  webp /* disable WebP rewrite (when using lazybg+webp.js) */
+);
 ```
 
 ### Install via npm
