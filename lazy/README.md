@@ -171,13 +171,13 @@ To manually disable webp rewrites for an image add the HTML attribute `data-webp
 
 `$lazybg` supports WebP rewrites by using `dist/lazybg+webp.js`.
 
-## `data-l` JSON config
+## `data-z` JSON config
 
-To enable usage in combination with a strict `Content-Security-Policy` the script can be configured using a `data-l` attribute on the script source element.
+To enable usage in combination with a strict `Content-Security-Policy` the script can be configured using a `data-z` attribute on the script source element.
 
 
 ```html
-<script data-l='{
+<script data-z='{
    "selector": "[data-src*=&apos;cdn.domain.com&apos;]", 
    "observer": { 
       "threshold": [1.0],
@@ -205,7 +205,7 @@ Multiple configurations are supported via the special multi-token `||`. The toke
     "ref": "lazy",
     "src": "dist/lazy-data-attr+polyfill.js",
     "attributes": {
-     "data-l": "[\"selector\", 0.006, \"0px\"]"
+     "data-z": "[\"selector\", 0.006, \"0px\"]"
     },
     "load_timing": "domReady",
     "cache": "localstorage"
@@ -250,7 +250,7 @@ When using `$async` you can alternatively use `window.$lazypoly` with a string o
 Alternatively, when including `$lazy` inline, the `data-poly` attribute enables to define a string to pass to `$async.js`.
 
 ```html
-<script data-l='... lazy config ...' data-poly='... config to pass to $async.js to load polyfill ...'>
+<script data-z='... lazy config ...' data-poly='... config to pass to $async.js to load polyfill ...'>
 // dist/lazy-data-attr+polyfill.js
 </script>
 ```
