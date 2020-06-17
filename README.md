@@ -1,29 +1,28 @@
 # Introduction
 
-Style.Tools is a CSS optimization widget
+The [Style.Tools](https://style.tools/) project started as a free browser-widget that provides a sort of DevTools (developer tools) for frontend optimization (FEO).
+
+Style.Tools is available with 1 click on any page on the internet, including pages behind a login.
 
 ![Style.Tools CSS optimization widget](../gitbook/images/styletools-widget.gif)
 
- provides solutions for frontend optimization (FEO). The solutions are based on the 🔬 Style.Tools FEO widget, a free browser widget.
+Style.Tools provides access to advanced technologies for CSS optimization including:
 
-- critical CSS generator
-- CSS editor
+- CSS editor with themes
+- Critical CSS generator
+- Unused CSS remover
+- Duplicate CSS extractor and remover (unique innovation)
 - CSS beautify
-- [clean-css](https://github.com/jakubpawlowicz/clean-css) optimization
-- repair broken CSS
-- remove unused CSS
-- remove duplicate CSS
+- CSS code optimization ([clean-css](https://github.com/jakubpawlowicz/clean-css))
+- CSS repair (fix malformed CSS)
 - extract unused and duplicate CSS (for automated unused CSS removal)
-- PostCSS plugins: autoprefixer and more
-- CSS lint
-- CSS analysis
+- CSS lint (quality checks)
+- CSS statistics (analysis)
+- [PostCSS](https://github.com/postcss/postcss) plugins: autoprefixer and many more
 
-### Critical CSS generator
 
-The critical CSS generator provided by Style.Tools FEO widget can provide a much better quality than the leading tools such as Penthouse.js. It is based on PostCSS with safeparser so that it can handle broken CSS. 
+# CMS integration
 
-### FEO plugins
+Style.Tools is integrated in professional optimization libraries and CMS plugins including a [WordPress FEO plugin](https://pagespeed.pro/wordpress/) and Google Cloud CDN FEO solution (CMS independent solution). 
 
-Our engineers can provide tailored optimization solutions for any CMS. The solution can include fully automated critical CSS and unused CSS removal to maintain optimal Google performance scores.
-
-![WordPress FEO plugin](../gitbook/images/wordpress-feo-plugin.png)
+For more information, see [https://pagespeed.pro/](https://pagespeed.pro/) (author of the Style.Tools project)
