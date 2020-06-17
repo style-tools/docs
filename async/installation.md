@@ -32,6 +32,12 @@ $async is modular and easy to use: select only the features that are needed to a
 
 The IIFE generator is available online on [https://style.tools/iife/](https://style.tools/iife/).
 
+## Installation
+
+```bash
+npm install @style.tools/async-iife
+```
+
 - [IIFE Generator documentation](./iife-generator.md)
 
 # Module concatenation: select only what you use

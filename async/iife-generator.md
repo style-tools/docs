@@ -1,13 +1,23 @@
-A Node.js IIFE generator for [@style.tools/async](https://github.com/style-tools/async).
+[$async IIFE generator](https://github.com/style-tools/async-iife) enables to easily create a pre-concatenated selection of `$async` modules that is additionally optimized using [Google Closure Compiler](https://developers.google.com/closure/compiler/). 
 
 The generator is available online on [https://style.tools/iife/](https://style.tools/iife/)
 
+# What is IIFE?
+
 IIFE or [Immediately-invoked Function Expressions](https://medium.com/@vvkchandra/essential-javascript-mastering-immediately-invoked-function-expressions-67791338ddc6) is a coding pattern for loading a script. An IIFE can be used in the browser safely.
 
-#### Example
+## Example
 
 ```html
-<script async src="async-iife.js"></script>
+<script async src="js/async-iife.js" data-c='[
+   [
+      "css/sheet1.css",
+      {
+         "href": "https://cdn.com/css/sheet2.css",
+         "render_timing": "requestAnimationFrame"
+      }
+   ]
+]'></script>
 ```
 
 The IIFE can be optmized using Google Closure Compiler with Advanced Optimizations for optimal compression.

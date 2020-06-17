@@ -1,26 +1,171 @@
-# Usage
+$async can be used as a javascript function or through a HTML attribute.
 
-The Async Loader can be configured using JSON that is structured via [JSON schema](https://github.com/style-tools/async/tree/master/json-schemas).
+$async accepts 8 arguments:
+
+1. CSS loader config
+2. CSS loader global options
+3. CSS capture config
+4. CSS capture global options
+5. Javascript loader config
+6. Javascript loader global options
+7. Javascript capture config
+8. Javascript capture global options
 
 ```javascript
 $async(
    [/*stylesheets*/],     // string, object or an array of strings or objects
    {/*options*/},         // object
    [/*capture*/],         // string, object or an array of strings or objects 
+   {/*capture options*/}, // object
+
+   [/*scripts*/],         // string, object or an array of strings or objects
+   {/*options*/},         // object
+   [/*capture*/],         // string, object or an array of strings or objects 
    {/*capture options*/}  // object
 ).then(function() { /* ready */ });
+```
 
+```html
+<script async src="js/async-iife.js" data-c='[
+   [/*stylesheets*/],     // string, object or an array of strings or objects
+   {/*options*/},         // object
+   [/*capture*/],         // string, object or an array of strings or objects 
+   {/*capture options*/}, // object
+
+   [/*scripts*/],         // string, object or an array of strings or objects
+   {/*options*/},         // object
+   [/*capture*/],         // string, object or an array of strings or objects 
+   {/*capture options*/}  // object
+]'></script>
+```
+
+$async is chainable and provides an API.
+
+```javascript
 // alternative load method for chaining when using the API module
-$async.load(/*...*/).load(/*...*/).then(/*...*/)
+$async
+  .load(/*...*/)
+  .load(/*...*/)
+  .then(function() { /* ready */ });
+```
 
-// custom timing when using the API module
-$async.time(
-  {/*timing config*/},
-  function() {
-    // script
+# Configuration
+
+The configuration of $async is 100% JSON and is availale in [JSON schemas](https://github.com/style-tools/async/tree/master/json-schemas).
+
+| Option                        | Description     | Type     |
+|--------------------------------|-----------------|-----------------|
+| `href`                | The stylesheet URL. | `String`    |
+| `src`                | The script URL. | `String`    |
+| `ref`                 | A reference to use for dependency or onload events. | `String`    |
+| `media`                 | A `media` attribute to define on the stylesheet HTML element. | `String`    |
+| `attributes`                 | An object of HTML attributes to define on the stylesheet HTML element. | `Object`    |
+| `base`                 | A base URL for relative URL re-basing. | `String`  |
+| `target`                | A query selector to insert the stylesheet before, or an object. | `false`, `String` or `Object`  |
+| `target.after`                 | A query selector for an DOM element to insert the stylesheet after. | `String`  |
+| `target.before`                 | A query selector for an DOM element to insert the stylesheet after. | `String`  |
+| `load_timing`                 | Download timing configuration (see [timing](#) module). | `String` or `Object`  |
+| `load_timing.type`                 | Timing method type (`domReady`, `setTimeout`, `requestAnimationFrame`, `requestIdleCallback`, `inview`, `lazy`, `media`, `method`) | `String`  |
+| `load_timing.frame`                 | Frame target for method `requestAnimationFrame` | `Number`  |
+| `load_timing.timeout`                 | Timeout in seconds for methods `requestIdleCallback` and `requestAnimationFrame` | `Number`  |
+| `load_timing.media`                 | Media Query for method `media` (responsive) | `String`  |
+| `load_timing.selector`                 | Query selector for method `inview` | `String`  |
+| `load_timing.offset`                 | Offset for method `inview`, see [in-view](https://github.com/camwiegert/in-view#api) | `Number` or `Object`  |
+| `load_timing.offset.top`                 | Offset from top | `Number`  |
+| `load_timing.offset.right`                 | Offset from right | `Number`  |
+| `load_timing.offset.bottom`                 | Offset from bottom | `Number`  |
+| `load_timing.offset.left`                 | Offset from left | `Number`  |
+| `load_timing.threshold`                 | Ratio of an elements height and width that needs to be visible for method `inview` | `Number`  |
+| `load_timing.method`                 | Method name to define on `window` to trigger the callback. | `String`  |
+| `load_timing.config`                 | Configuration to pass to `$lazy`. | `String`, `Object` or `Array`  |
+| `load_timing.ref`                 | `$lazy` dependency to wait for. | `String`  |
+| `render_timing`                 | CSS render timing configuration (see [timing](#) module). | `String` or `Object`  |
+| `render_timing.*`                 | See `load_timing.*` | `Object` |
+| `exec_timing`                 | Script exec timing configuration (see [timing](#) module). | `String` or `Object`  |
+| `exec_timing.*`                 | See `load_timing.*` | `Object` |
+| `cache`                 | A string or object with cache configuration (see [cache](#) module). | `String` or `Object`  |
+| `cache.type`                 | Cache method, `localstorage` or `cache-api`. | `String`  |
+| `cache.namespace`                 | Namespace for cache. | `String`  |
+| `cache.expire`                 | Expire time in seconds. | `Number`  |
+| `cache.max_size`                 | Maximum size in bytes to store in cache. | `Number`  |
+| `cache.source`                 | Methods for CSS source retrieval, `cssText`, `xhr` or `cors` | `String` or `Array`  |
+| `cache.xhr`                 | An object with XHR request configuration. | `Object`    |
+| `cache.xhr.headers`                 | An key/value object with HTTP headers to include in the XHR request. | `Object`    |
+| `cache.cors`                 | An string with a CORS proxy URL or a object with CORS proxy configuration. | `String` or `Object`    |
+| `cache.cors.proxy`                 | A proxy URL. | `String`  |
+| `cache.cors.xhr`                 | The same as `cache.xhr` (override for proxy). | `Object`  |
+| `cache.update`                 | Background update configuration object. | `Object`  |
+| `cache.update.interval`                 | Background update interval in seconds. | `Number`  |
+| `cache.update.head`                 | Enable/disable HTTP `HEAD` `304 - Not Modified` check based update. | `Boolean`  |
+| `cache.fallback`                 | The same options as `cache` to use as fallback. | `String` or `Object`  |
+| `dependencies`                 | A string, object or array of strings and/or objects. | `String` or `Object`  |
+| `dependencies.match`                 | Dependency match pattern. | `String`  |
+| `dependencies.regex`                 | Boolean to enable/disable regular expression based match. | `Boolean`  |
+
+## Example JSON
+
+```json
+{
+  "href": "sheet.css",
+  "dependencies": [
+    "other-sheet.css"
+  ],
+  "cache": {
+    "type": "localstorage",
+    "max_size": 10000,
+    "fallback": "cache-api",
+    "update": {
+      "head": true,
+      "interval": 86400
+    },
+    "source": "cors",
+    "cors": {
+      "proxy": "https://cors-anywhere.herokuapp.com/"
+    },
+    "xhr": {
+      "headers": {
+        "x-special-header": "secret-key"
+      }
+    }
   },
-  [/*optional debug-info*/]
-);
+  "attributes": {
+    "data-app-sheet": "1"
+  },
+  "load_timing": {
+    "type": "inview",
+    "selector": "#footer",
+    "offset": -250
+  },
+  "render_timing": "requestAnimationFrame"
+}
+```
+
+## Global options
+
+Most of the options from the load configuration can be defined in the global configuration to apply to all stylesheets, for example a `base` path to resolve relative paths.
+
+The following extra options can be defined via the global options.
+
+| Option               |
+|----------------------|
+| `media`              |
+| `attributes`         | 
+| `base`               |
+| `target`             |
+| `load_timing`        |
+| `render_timing`      |
+| `cache`              |
+
+
+```javascript
+$async(
+  ["sheet1.css", {"href":"sheet2.css", "ref": "test"}], 
+  // global options applied to sheet1.css and sheet2.css
+  // ref from sheet2.css overrides the global ref
+  {
+    "ref": "global-options",
+    "load_timing": "domReady"
+});
 ```
 
 # Examples
@@ -109,105 +254,7 @@ $async
    .load('other-sheet.css');
 ```
 
-# Configuration
-
-The configuration of the CSS loader is available in JSON schemas.
-
-https://github.com/style-tools/async/tree/master/json-schemas/
-
-## Load configuration
-
-`$async()` accepts a single string (URL), a configuration object or an array of strings and/or objects.
-
-The stylesheet load configuration object contains the following parameters:
-
-| Option                        | Description     | Type     |
-|--------------------------------|-----------------|-----------------|
-| `href`                | The stylesheet URL. | `String`    |
-| `ref`                 | A reference to use for dependency or onload events. | `String`    |
-| `media`                 | A `media` attribute to define on the stylesheet HTML element. | `String`    |
-| `attributes`                 | An object of HTML attributes to define on the stylesheet HTML element. | `Object`    |
-| `base`                 | A base URL for relative URL re-basing. | `String`  |
-| `target`                | A query selector to insert the stylesheet before, or an object. | `false`, `String` or `Object`  |
-| `target.after`                 | A query selector for an DOM element to insert the stylesheet after. | `String`  |
-| `target.before`                 | A query selector for an DOM element to insert the stylesheet after. | `String`  |
-| `load_timing`                 | Download timing configuration (see [timing](#) module). | `String` or `Object`  |
-| `load_timing.type`                 | Timing method type (`domReady`, `setTimeout`, `requestAnimationFrame`, `requestIdleCallback`, `inview`, `lazy`, `media`, `method`) | `String`  |
-| `load_timing.frame`                 | Frame target for method `requestAnimationFrame` | `Number`  |
-| `load_timing.timeout`                 | Timeout in seconds for methods `requestIdleCallback` and `requestAnimationFrame` | `Number`  |
-| `load_timing.media`                 | Media Query for method `media` (responsive) | `String`  |
-| `load_timing.selector`                 | Query selector for method `inview` | `String`  |
-| `load_timing.offset`                 | Offset for method `inview`, see [in-view](https://github.com/camwiegert/in-view#api) | `Number` or `Object`  |
-| `load_timing.offset.top`                 | Offset from top | `Number`  |
-| `load_timing.offset.right`                 | Offset from right | `Number`  |
-| `load_timing.offset.bottom`                 | Offset from bottom | `Number`  |
-| `load_timing.offset.left`                 | Offset from left | `Number`  |
-| `load_timing.threshold`                 | Ratio of an elements height and width that needs to be visible for method `inview` | `Number`  |
-| `load_timing.method`                 | Method name to define on `window` to trigger the callback. | `String`  |
-| `load_timing.config`                 | Configuration to pass to `$lazy`. | `String`, `Object` or `Array`  |
-| `load_timing.ref`                 | `$lazy` dependency to wait for. | `String`  |
-| `render_timing`                 | CSS render timing configuration (see [timing](#) module). | `String` or `Object`  |
-| `render_timing.*`                 | See `load_timing.*` | `Object` |
-| `exec_timing`                 | Script exec timing configuration (see [timing](#) module). | `String` or `Object`  |
-| `exec_timing.*`                 | See `load_timing.*` | `Object` |
-| `cache`                 | A string or object with cache configuration (see [cache](#) module). | `String` or `Object`  |
-| `cache.type`                 | Cache method, `localstorage` or `cache-api`. | `String`  |
-| `cache.namespace`                 | Namespace for cache. | `String`  |
-| `cache.expire`                 | Expire time in seconds. | `Number`  |
-| `cache.max_size`                 | Maximum size in bytes to store in cache. | `Number`  |
-| `cache.source`                 | Methods for CSS source retrieval, `cssText`, `xhr` or `cors` | `String` or `Array`  |
-| `cache.xhr`                 | An object with XHR request configuration. | `Object`    |
-| `cache.xhr.headers`                 | An key/value object with HTTP headers to include in the XHR request. | `Object`    |
-| `cache.cors`                 | An string with a CORS proxy URL or a object with CORS proxy configuration. | `String` or `Object`    |
-| `cache.cors.proxy`                 | A proxy URL. | `String`  |
-| `cache.cors.xhr`                 | The same as `cache.xhr` (override for proxy). | `Object`  |
-| `cache.update`                 | Background update configuration object. | `Object`  |
-| `cache.update.interval`                 | Background update interval in seconds. | `Number`  |
-| `cache.update.head`                 | Enable/disable HTTP `HEAD` `304 - Not Modified` check based update. | `Boolean`  |
-| `cache.fallback`                 | The same options as `cache` to use as fallback. | `String` or `Object`  |
-| `dependencies`                 | A string, object or array of strings and/or objects. | `String` or `Object`  |
-| `dependencies.match`                 | Dependency match pattern. | `String`  |
-| `dependencies.regex`                 | Boolean to enable/disable regular expression based match. | `Boolean`  |
-
-### Example JSON
-
-```json
-{
-  "href": "sheet.css",
-  "dependencies": [
-    "other-sheet.css"
-  ],
-  "cache": {
-    "type": "localstorage",
-    "max_size": 10000,
-    "fallback": "cache-api",
-    "update": {
-      "head": true,
-      "interval": 86400
-    },
-    "source": "cors",
-    "cors": {
-      "proxy": "https://cors-anywhere.herokuapp.com/"
-    },
-    "xhr": {
-      "headers": {
-        "x-special-header": "secret-key"
-      }
-    }
-  },
-  "attributes": {
-    "data-app-sheet": "1"
-  },
-  "load_timing": {
-    "type": "inview",
-    "selector": "#footer",
-    "offset": -250
-  },
-  "render_timing": "requestAnimationFrame"
-}
-```
-
-### Example just-in-time loading
+## Example just-in-time loading
 
 `$async` enables `just-in-time` loading of CSS and javascript which can provide a great performance win for many websites. The following example preloads a popup script on `domReady` and executes it when the script is needed, saving CPU time for most visitors.
 
@@ -233,33 +280,6 @@ jQuery('button.popup').on('click', function() {
 });
 ```
 
-## Global configuration
-
-Most of the options from the load configuration can be defined in the global configuration to apply to all stylesheets.
-
-The following options can be defined via the global options.
-
-| Option               |
-|----------------------|
-| `media`              |
-| `attributes`         | 
-| `base`               |
-| `target`             |
-| `load_timing`        |
-| `render_timing`      |
-| `cache`              |
-
-
-```javascript
-$async(
-  ["sheet1.css", {"href":"sheet2.css", "ref": "test"}], 
-  // global options applied to sheet1.css and sheet2.css
-  // ref from sheet2.css overrides the global ref
-  {
-    "ref": "global-options",
-    "load_timing": "domReady"
-});
-```
 
 ## Custom timing
 
@@ -292,7 +312,3 @@ A simple `requestIdleCallback` with the default timeout:
 $async.time("requestIdleCallback", function() {});
 $async.time(53, function() {}); // compression index
 ```
-
-When using debug sources, the browser console will provide Performance API details.
-
-![$async.time](../gitbook/images/async-timing.png)

@@ -13,7 +13,7 @@
 * [$async - async loader](async/README.md)
   * [Installation](async/installation.md)
   * [Usage](async/usage.md)
-    * [Capture](async/usage-capture.md)
+  * [Capture](async/usage-capture.md)
   * [IIFE generator](async/iife-generator.md)
 
 * [$lazy - IntersectionObserver](lazy/README.md)
