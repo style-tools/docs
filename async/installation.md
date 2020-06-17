@@ -44,7 +44,7 @@ npm install @style.tools/async-iife
 
 $async is compiled into modules via [Google Closure Compiler](https://developers.google.com/closure/compiler/) that does not just compress javascript but also [optimizes it for speed](https://developers.google.com/closure/compiler/).
 
-The Google Closure Compiler module architecture enables to concatenated a selection of $async modules without the use of a module loader. You can simply wrap the module source text in a IIFE and include it safely in the HTML document.
+The Google Closure Compiler module architecture enables to concatenate a selection of $async modules without the use of a module loader. You can simply wrap the module source text in a IIFE and include it safely in the HTML document.
 
 ## Example: Pre-concatenated file
 
