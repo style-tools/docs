@@ -10,8 +10,6 @@ The simple Critical CSS generator uses an enhanced version of the snippet and su
 
 The quality of the simple critical CSS generator is often not that well but it can provide a quick extract.
 
-- [View usage documentation](./simple-usage.md)
-
 # Advanced generator
 
 The advanced Critical CSS generator is based on [PostCSS](https://github.com/postcss/postcss) and can provide 100% accuracy for complex designs. The generator provides Puppeteer-like browser control that enables to discover CSS that may be applicable by browser activity such as scripts, events and scrolling.

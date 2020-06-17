@@ -1,26 +1,14 @@
-# Advanced
+The advanced Critical CSS generator provides many options for tuning the generator and PostCSS parser.
 
-The advanced Critical CSS generator is based on [PostCSS](https://github.com/postcss/postcss). Some of the unique features are the support for multiple viewports (responsive designs) and async script-injected stylesheets.
+The configuration is 100% JSON and is availale in a [JSON schema](https://style.tools/json-schemas/critical-css-generator.json).
 
-The advanced generator can produce pixel-perfect responsive Critical CSS with a single click when configured correctly. By using UI actions the generator is able to discover all essential above-the-fold CSS automatically, including for example the purely essential CSS required for a CSS-only mobile menu.
+# Setup
 
-The output of the advanced Critical CSS generator is **pure and unfiltered**. The generator does not apply compression or optimization techniques. The output is thereby reliable. No CSS code goes missing without the control of the designer.
+The critical CSS generator is part of the Style.Tools [CSS optimization widget](./README.md).
 
-Professional CSS code optimization software such as [clean-css](https://github.com/jakubpawlowicz/clean-css) are able to provide code optimization and compression. The final result is thereby better (better compression and more accurate) than from other tools.
+![Critical CSS extract](../gitbook/images/critical-css-extract.gif)
 
-The creation of Critical CSS using the advanced generator consists of three steps:
-
-1. Generating Critical CSS using the generator
-2. Optimizing and compressing the result
-3. Tuning the Critical CSS (Above the fold optimization)
-
-# Usage
-
-The advanced Critical CSS generator provides many options for tuning the generator and PostCSS parser. The configuration of the Critical CSS generator is available in a JSON schema.
-
-https://style.tools/json-schemas/critical-css-generator.json
-
-## Options
+# Options
 
 | Option                         | Description     | Type     |
 |--------------------------------|-----------------|----------|
@@ -37,7 +25,7 @@ https://style.tools/json-schemas/critical-css-generator.json
 | `strictParser`   | By default, the CSS is parsed using the fault tolerant [PostCSS Safe Parser](https://github.com/postcss/postcss-safe-parser) that automatically fixes syntax errors. This setting enables to use the strict parser. |  `true`  |
 | `ui_actions`   | An array of actions to perform on the UI state to discover above-the-fold CSS code. | `[{"viewport":"360x640"}, {"run": true}]` |
 
-## Example configuration
+# Example configuration
 
 ```json
 {
