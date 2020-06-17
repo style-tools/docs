@@ -1,8 +1,8 @@
 The advanced critical CSS generator is part of the Style.Tools [CSS optimization widget](./README.md).
 
-The configuration is 100% JSON and is availale in a [JSON schema](https://style.tools/json-schemas/critical-css-generator.json).
-
 ![Critical CSS extract](../gitbook/images/critical-css-extract.gif)
+
+The configuration is 100% JSON and is availale in a [JSON schema](https://style.tools/json-schemas/critical-css-generator.json).
 
 # Options
 
@@ -103,7 +103,7 @@ The configuration is 100% JSON and is availale in a [JSON schema](https://style.
 }
 ```
 
-## Critical CSS Generator
+# Setup
 
 Start the 📐 Style.Tools browser widget (see [introduction](../README.md)) and click on `Tools` (top) and `Critical CSS Generator` (menu-item).
 
@@ -121,9 +121,9 @@ The generator provides three output options:
 
 Click the extract button to start the generator.
 
-## Optimizing the result
+# Optimizing the result
 
-The output of the Critical CSS generator is pure and unfiltered and requires further optimization to achieve an optimal compression suitable for inlining.
+The output of the Critical CSS generator is raw and requires further optimization such as compression.
 
 The critical CSS will contain a comment with basic statistics. In the example below for [www.w3schools.com](https://www.w3schools.com/), the critical CSS output has a size of 29.69 kB, a reduction of 73.07% from the original CSS.
 
@@ -133,18 +133,16 @@ The `Optimize` button in the editor menu enables to apply code optimization and 
 
 ![Optimized Critical CSS](../gitbook/images/critical-css-result-after-optimize.png)
 
-## Above the fold optimization
+# Above the fold optimization
 
 By comparing the Critical CSS View with the Original CSS View you can detect issues with the Critical CSS and optimize the critical CSS manually to achieve a pixel perfect result.
 
 ![Above the fold optimization](../gitbook/images/critical-css-generator-abtf.png)
 
-## Automated (conditional) inlining
+# UI actions
 
-You can save the Critical CSS for automated (conditional) inlining using the save button provided by one of the available [CMS Connectors](https://github.com/style-tools).
+The advanced critical CSS generator provides Puppeteer-like browser control and enables to execute scripts, trigger events such as `mouseover`, control the scroll position and viewport size and more.
 
-## UI actions
+UI actions enables the critical CSS generator to provide a 100% accurate and reliable result.
 
-To discover critical CSS for multiple mobile or desktop viewports, for essential parts such as a mobile navigation menu or for javascript triggered DOM changes, it is possible to define UI actions that will modify the UI state during the Critical CSS generation process. 
-
-See [UI actions](./advanced-ui-actions.md) for documentation.
+- [UI actions documentation](./advanced-ui-actions.md)
