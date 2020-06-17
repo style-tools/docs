@@ -26,4 +26,4 @@ Style.Tools is integrated in professional optimization libraries and CMS plugins
 
 For more information, see [https://pagespeed.pro/](https://pagespeed.pro/)
 
-![](../gitbook/images/psp-concept.jpg)
+[![](../gitbook/images/psp-concept.jpg)](https://pagespeed.pro/)
