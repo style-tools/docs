@@ -8,12 +8,6 @@ $async('sheet.css').then(function() { /* ready */ });
 $async.js('script.js').then(function() { /* ready */ });
 ```
 
-# Installation
-
-See [Installation](./installation.md)
-
-# Introduction
-
 $async is designed as the ultimate CSS and script loader for modern frontend optimization (FEO). It provides state of the art features, the absolute best performance and the tiniest HTML footprint. $async supports all browsers including IE9+.
 
 - 100% JSON controlled.
