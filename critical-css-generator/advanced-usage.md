@@ -1,4 +1,4 @@
-The advanced critical CSS generator is part of the Style.Tools [CSS optimization widget](./README.md).
+The advanced critical CSS generator is part of the Style.Tools [CSS optimization widget](../README.md).
 
 ![Critical CSS extract](../gitbook/images/critical-css-extract.gif)
 
