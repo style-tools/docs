@@ -25,6 +25,8 @@ $async(
 ).then(function() { /* ready */ });
 ```
 
+Usage through HTML attribute.
+
 ```html
 <script async src="js/async-iife.js" data-c='[
    [/*stylesheets*/],     // string, object or an array of strings or objects
