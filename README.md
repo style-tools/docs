@@ -1,6 +1,10 @@
 # Introduction
 
-🔬 Style.Tools provides solutions for frontend optimization (FEO). The solutions are based on the 🔬 Style.Tools FEO widget, a free browser widget.
+Style.Tools is a CSS optimization widget
+
+![Style.Tools CSS optimization widget](../gitbook/images/styletools-widge.gif)
+
+ provides solutions for frontend optimization (FEO). The solutions are based on the 🔬 Style.Tools FEO widget, a free browser widget.
 
 - critical CSS generator
 - CSS editor
