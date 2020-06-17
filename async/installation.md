@@ -1,6 +1,6 @@
 # Installation
 
-[@style.tools/async](https://npmjs.com/package/@style.tools/async) is available on NPM and as a PHP Composer package.
+$async is available on NPM as [@style.tools/async](https://npmjs.com/package/@style.tools/async) and as a PHP Composer package.
 
 ### Install via NPM
 
@@ -18,21 +18,43 @@ composer require styletools/async
 
 Package: https://packagist.org/packages/styletools/async
 
-# Setup
+# Usage
 
-`$async` has been designed for `above-the-fold` optimization. The script is compiled into individual modules via [Google Closure Compiler](https://developers.google.com/closure/compiler/) that does not just compress javascript but also [optimizes it for speed](https://developers.google.com/closure/compiler/). The individual modules can be concatenated without the use of a module loader.
+$async is modular and easy to use: select only the features that are needed to achieve the tiniest script size.
+- simply stitch pre-optimized GCC modules together for a performant IIFE. You can wrap the modules in [dist/](./dist/) into an IIFE, e.g. `!function(){/* stitched modules */}();`. Follow the module order in [package.json](./package.json).
+- [Online IIFE generator](https://style.tools/iife/) (adds an extra GCC _Advanced mode_ compression layer)
+- [Node.js/CLI IIFE generator](https://github.com/style-tools/async-iife) (adds an extra GCC _Advanced mode_ compression layer)
+- PHP IIFE generator (available on request: info@style.tools)
 
-## IIFE Generator
+# IIFE Generator
 
-An IIFE is a pre-concatenated selection of `$async` modules that is additionally optimized using Google Closure Compiler with mode Advanced Optimizations. IIFE or [Immediately-invoked Function Expressions](https://medium.com/@vvkchandra/essential-javascript-mastering-immediately-invoked-function-expressions-67791338ddc6) is a coding pattern for loading a script. An IIFE can be used in the browser safely.
+[$async IIFE generator](https://github.com/style-tools/async-iife) enables to easily create a pre-concatenated selection of `$async` modules that is additionally optimized using [Google Closure Compiler](https://developers.google.com/closure/compiler/). 
 
-For more documentation, see [IIFE Generator](./iife-generator.md)
+The IIFE generator is available online on [https://style.tools/iife/](https://style.tools/iife/).
 
-## Manual concatenation
+- [IIFE Generator documentation](./iife-generator.md)
 
-The Google Closure Compiler module architecture enables to concatenated a selection of modules without the use of a module loader. You can simply wrap the module source text in a IIFE and include it safely in the HTML document.
+# Module concatenation: select only what you use
 
-### Example concatenation
+$async is compiled into modules via [Google Closure Compiler](https://developers.google.com/closure/compiler/) that does not just compress javascript but also [optimizes it for speed](https://developers.google.com/closure/compiler/).
+
+The Google Closure Compiler module architecture enables to concatenated a selection of $async modules without the use of a module loader. You can simply wrap the module source text in a IIFE and include it safely in the HTML document.
+
+## Example: Pre-concatenated file
+
+```html
+<script async src="js/async-iife.js" data-c='[
+   [
+      "css/sheet1.css",
+      {
+         "href": "https://cdn.com/css/sheet2.css",
+         "render_timing": "requestAnimationFrame"
+      }
+   ]
+]'></script>
+```
+
+## Example: Inline concatenation
 
 ```php
 <?php
@@ -44,39 +66,5 @@ readfile('vendor/styletools/async/dist/css-loader.js');
 readfile('vendor/styletools/async/dist/cache.js'); // cache module
 readfile('vendor/styletools/async/dist/localstorage.js'); // localStorage module
 echo "})();</script>";
-?>
-```
-
-### Example using [📐 Style.Tools PHP library](https://github.com/style-tools/php-cms-connector/)
-
-```php
-<?php
-
-// CSS Loader config 
-$async_config = array(
-	'load' => array( 'sheet.css' ),
-	'load_options' => array( 'load_timing' => 'requestAnimationFrame' )
-);
-
-// discover modules via config
-$modules = StyleTools\AsyncCSS::discover_modules($async_config);
-
-// manually add some modules
-$modules[] = 'api'; // public API and events
-$modules[] = 'attr-config'; // data-c HTML attribute config
-
-// generate IIFE
-$iife_options = array(
-    'cache' => true,
-    'compress' => true,
-    'mode' => 'unary'
-);
-$module_iife = StyleTools\IIFE::generate($modules, $iife_options);
-
-// compress JSON config
-$compressed_config = StyleTools\AsyncCSS::compress($async_css_config, null, false, true);
-
-// inline $async script
-echo '<script data-c=\''.(($compressed_config) ? $compressed_config : '').'\'>'.$module_iife.'</script>';
 ?>
 ```
