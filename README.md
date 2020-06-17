@@ -41,6 +41,6 @@ Visit [https://style.tools/](https://style.tools) for instructions and a easy *d
 
 Style.Tools is integrated in professional optimization libraries and CMS plugins including a [WordPress FEO plugin](https://pagespeed.pro/wordpress/) and a [Google CDN FEO solution](https://pagespeed.pro/google-cdn/). 
 
-For more information, see [https://pagespeed.pro/](https://pagespeed.pro/)
+For information, see [https://pagespeed.pro/](https://pagespeed.pro/)
 
 [![](../gitbook/images/psp-concept.jpg)](https://pagespeed.pro/)

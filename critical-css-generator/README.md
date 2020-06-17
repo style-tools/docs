@@ -1,6 +1,4 @@
-The Style.Tools [CSS optimization widget](https://style.tools/) provides access to an advanced Critical CSS generator. The widget works with 1 click on any page on the internet, including pages behind a login.
-
-![Style.Tools CSS optimization widget](../gitbook/images/styletools-widget.gif)
+The Style.Tools [CSS optimization widget](./README.md) provides access to an advanced Critical CSS generator.
 
 The widget provides two different Critical CSS generators: Simple and Advanced.
 
@@ -41,4 +39,8 @@ Professional CSS code optimization solutions such as [clean-css](https://github.
 
 # Google Cloud bases automation
 
-[PageSpeed.PRO](https://pagespeed.pro) can provide the advanced Critical CSS generator as an **automated solution** based on Google Cloud infrastructure. For more information, visit [https://pagespeed.pro/google-cdn/](https://pagespeed.pro/google-cdn/).
+[PageSpeed.PRO](https://pagespeed.pro) can provide the advanced Critical CSS generator as an **automated solution** based on Google Cloud infrastructure. 
+
+For information, visit [https://pagespeed.pro/google-cdn/](https://pagespeed.pro/google-cdn/).
+
+[![](../gitbook/images/psp-concept.jpg)](https://pagespeed.pro/)
