@@ -2,7 +2,7 @@
 
 Style.Tools is a CSS optimization widget
 
-![Style.Tools CSS optimization widget](../gitbook/images/styletools-widge.gif)
+![Style.Tools CSS optimization widget](../gitbook/images/styletools-widget.gif)
 
  provides solutions for frontend optimization (FEO). The solutions are based on the 🔬 Style.Tools FEO widget, a free browser widget.
 
