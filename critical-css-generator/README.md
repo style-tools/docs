@@ -18,7 +18,7 @@ The advanced Critical CSS generator is based on [PostCSS](https://github.com/pos
 
 ## JSON configuration
 
-The advanced generator is 100% JSON controlled which enables to easily re-use configuration so that in practice, the advanced extract of critical CSS can be done in a few seconds.
+The advanced generator is 100% JSON controlled which enables to easily re-use configuration so that in practice, an advanced extract of critical CSS can be done in a few seconds.
 
 ## The best result
 
