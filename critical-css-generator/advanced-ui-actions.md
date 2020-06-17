@@ -1,6 +1,4 @@
-# UI Actions
-
-To discover critical CSS for multiple mobile or desktop viewports, for essential parts such as a mobile navigation menu or for javascript triggered DOM changes, it is possible to define UI actions that will modify the UI state during the Critical CSS generation process. 
+The advanced critical CSS generator provides Puppeteer-like browser control and enables to execute scripts, trigger events such as `mouseover`, control the scroll position and viewport size and more.
 
 The `ui_actions` parameter accepts an array with UI action objects that define UI state changes in chronological order.
 
