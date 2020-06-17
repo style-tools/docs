@@ -1,4 +1,4 @@
-$async can be used as a javascript function or through a HTML attribute.
+$async can be used as a javascript function or through a HTML attribute on a script element.
 
 $async accepts 8 arguments:
 
