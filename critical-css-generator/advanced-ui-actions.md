@@ -148,3 +148,5 @@ Each action object accepts a `notes` parameter that can be used to add descripti
   ]
 }
 ```
+
+[![](../gitbook/images/psp-concept.jpg)](https://pagespeed.pro/)

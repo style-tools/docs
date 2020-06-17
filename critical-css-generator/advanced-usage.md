@@ -146,3 +146,5 @@ The advanced critical CSS generator provides Puppeteer-like browser control and 
 UI actions enables the critical CSS generator to provide a 100% accurate and reliable result.
 
 - [UI actions documentation](./advanced-ui-actions.md)
+
+[![](../gitbook/images/psp-concept.jpg)](https://pagespeed.pro/)
