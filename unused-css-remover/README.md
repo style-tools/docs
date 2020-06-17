@@ -65,3 +65,12 @@ The options enable to fine tune the PostCSS parser, what selectors and propertie
 `ui_actions` accepts the same configuration as the Critical CSS generator. 
 
 - [UI actions documentation](../critical-css-generator/advanced-ui-actions.md)
+
+
+# Google Cloud based automation
+
+[PageSpeed.PRO](https://pagespeed.pro) can provide the advanced Unused CSS remover as an **automated solution** based on Google Cloud infrastructure. 
+
+For information, visit [https://pagespeed.pro/google-cdn/](https://pagespeed.pro/google-cdn/).
+
+[![](../gitbook/images/psp-concept.jpg)](https://pagespeed.pro/)

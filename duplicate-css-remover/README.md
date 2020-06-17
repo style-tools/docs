@@ -1,27 +1,38 @@
-# Introduction
+The Style.Tools [CSS optimization widget](../README.md) provides access to an advanced duplicate CSS remover.
 
-The duplicate CSS remover is part of the 📐 Style.Tools browser widget (see [introduction](../README.md)).
+# Usage
 
-The duplicate CSS remover is a [PostCSS](https://github.com/postcss/postcss) (CSS parser) based solution that enables to remove CSS code from a stylesheet that is present in one or more other stylesheets. 
+The duplicate CSS remover provides many options for tuning the duplicate CSS remover and PostCSS parser. 
 
-An example usage case would be to create a `global.css` file that is loaded on all pages with additional files that contain the CSS code specific to a page, e.g. `product.css` for product pages. 
+The configuration is 100% JSON and is available in a [JSON schema](https://style.tools/json-schemas/duplicate-css-remover.json).
 
-To create `product.css` without CSS code already present in `global.css`, you may start with `total.css` (all CSS of a design), use the [unused CSS remover](unused-css-remover/README.md) to reduce it to the CSS essential for the product page and then remove the CSS code that is already present in `global.css` using the duplicate CSS remover. 
+# Configuration
 
-The result is a `product.css` file that can be loaded together with `global.css` for a complete coverage of product pages with the absolute minimum CSS required.
+By default, the duplicate CSS remover simply removes duplicate code found in an other stylesheet. The configuration enables to fine tune the PostCSS parser and what selectors and properties to preserve or to forcefully remove.
 
-The duplicate CSS remover enables to resolve the Google Lighthouse `Defer unused CSS` pentalty on the basis of pure minimum CSS.
+```json
+{
+  "atRulesToKeep": [],
+  "atRulesToRemove": [],
+  "selectorsToKeep": [],
+  "selectorsToRemove": [],
+  "propertiesToKeep": [],
+  "propertiesToRemove": [],
+  "strictParser": false
+}
+```
 
-![Google Lighthouse unused CSS penalty](../gitbook/images/lighthouse-unused-css-penalty.png)
+The second input field accepts the stylesheet index number. You can find the index of a stylesheet on the stylesheet overview on the settings tab.
 
-> **Note:** The [async CSS loader](async/README.md) enables to resolve the performance penalty for larger (non-optimized) stylesheets. For example, it could resolve the penalty while using `total.css` by using an efficient load strategy and optimal Critical CSS.
+![Stylesheet index](../gitbook/images/stylesheet-index.png)
 
-For best performance, reducing the CSS for any page to the minimum required provides the best result. 📐 Style.Tools makes it possible.
+If you want to upload stylesheet or compare stylesheets from external URL(s), you can simply create a new stylesheet and import URLs or upload the stylesheets and use the index from the new sheet in the duplicate CSS remover. It takes just a few clicks. 
 
-## CMS connectors / plugins
+![Import URLs or upload multiple stylesheets](../gitbook/images/import-new-sheet.png)
 
-You can conditionally load stylesheets using one of the [CMS Connectors](https://github.com/style-tools). It enables to specifically define what stylesheets to load, and how to load them, for any given page or area on a website.
+Once configured, simply press the button to start the duplicate CSS remover. A CSS comment will display basic statistics of the resulting reduced CSS.
 
-The following example shows a custom PHP CMS that uses a PHP method to determine that a page is a product page, for which then a unique Async Loading configuration is applied. (the same for loading Critical CSS).
+![Duplicate CSS remover result](../gitbook/images/duplicate-css-remover-result.png)
 
-![Async CSS management for custom PHP CMS](../gitbook/images/async-custom-php-cms.png)
+
+[![](../gitbook/images/psp-concept.jpg)](https://pagespeed.pro/)
