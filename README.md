@@ -24,6 +24,6 @@ Style.Tools provides access to advanced technologies for CSS optimization includ
 
 Style.Tools is integrated in professional optimization libraries and CMS plugins including a [WordPress FEO plugin](https://pagespeed.pro/wordpress/) and a [Google Cloud CDN FEO solution](https://pagespeed.pro/google-cdn/). 
 
-For more information, see [https://pagespeed.pro/](https://pagespeed.pro/) (author of the Style.Tools project)
+For more information, see [https://pagespeed.pro/](https://pagespeed.pro/)
 
 ![](../gitbook/images/psp-concept.jpg)
