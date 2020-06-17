@@ -1,10 +1,12 @@
-The Style.Tools [CSS optimization widget](./README.md) provides access an advanced unused CSS extractor and remover.
+The Style.Tools [CSS optimization widget](./README.md) provides access to an advanced unused CSS extractor and remover.
 
-The unused CSS remover can extract and output unused CSS or remove unused CSS from a stylesheet.
+The unused CSS remover uses the same technology as the Critical CSS generator and supports the same [UI actions](critical-css-generator/advanced-ui-actions.md) for Puppeteer-like browser control.
 
-The unused CSS remover uses the same technology as the Critical CSS generator and supports the same [UI actions](critical-css-generator/advanced-ui-actions.md).
+The unused CSS extractor provides three output options:
 
-![Google Lighthouse unused CSS penalty](../gitbook/images/lighthouse-unused-css-penalty.png)
+1. remove unused CSS from a stylesheet
+2. extract unused CSS into a new stylesheet
+3. download
 
 # Usage
 
@@ -56,8 +58,8 @@ By default, the unused CSS remover simply performs the unused CSS remover proces
 }
 ```
 
-The options enable to fine tune the PostCSS parser, what selectors and properties to preserve or to forcefully remove and the UI actions to perform during the unused CSS removal process.
+The options enable to fine tune the PostCSS parser, what selectors and properties to preserve or to forcefully remove and the UI actions to perform during the unused CSS extraction process.
 
-`ui_actions` accepts the same configuration as the UI actions of the Critical CSS generator. 
+`ui_actions` accepts the same configuration as the Critical CSS generator. 
 
 - [UI actions documentation](./advanced-ui-actions.md)
