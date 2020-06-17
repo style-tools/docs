@@ -1,5 +1,3 @@
-# Free CSS optimization widget
-
 The [Style.Tools](https://style.tools/) project started as a free browser-widget that provides a sort of DevTools (developer tools) for frontend optimization (FEO).
 
 Style.Tools is available with 1 click **on any page on the internet**, including pages behind a login.
@@ -24,7 +22,7 @@ The widget provides **localhost and offline support** via a Service Worker on do
 
 # Installation
 
-The widget is a small piece of Javascript code that can be added to the browser bookmarks bar via the URL prefix `javascript:`.
+The widget is a small piece of Javascript code that can be added to the browser bookmarks or favorites bar via the URL prefix `javascript:`.
 
 ```javascript
 javascript:(function(r,a,k,l,f,g,b,m){function n(c,b,d){a.open();b&&(r.onmessage=b);d&&a.addEventListener("securitypolicyviolation",d);a.write(c);a.close()}f="https://style.tools/";g="Style.Tools";var c=a.createElement("script");c.src=f+"x.js";c.onerror=function(){function p(d){if(c=d?d.violatedDirective:0){if("script-src"==c||m)return;m=1;b&&l(b)}if(!q){var h=f+"#"+a.location;a.getElementById("e").innerHTML='<h2 style="color:red;">'+g+(c?' blocked by CSP <font color="blue">'+c+"</font>":" failed to load")+
@@ -36,7 +34,7 @@ javascript:(function(r,a,k,l,f,g,b,m){function n(c,b,d){a.open();b&&(r.onmessage
 Source of widget:
 https://github.com/style-tools/widget/blob/master/widget.js (849 Bytes)
 
-Visit [https://style.tools/][https://style.tools] for instructions and a easy drag&drop link to install the widget in the browser bookmarks or favorites bar.
+Visit [https://style.tools/](https://style.tools) for instructions and a easy *drag&drop link* to install the widget.
 
 
 # CMS integration and plugins
