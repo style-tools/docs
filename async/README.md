@@ -12,15 +12,7 @@ $async.js('script.js').then(function() { /* ready */ });
 
 ## via npm
 
-```bash
-npm install @style.tools/async --save
-```
-
-## via PHP Composer
-
-```bash
-composer require styletools/async
-```
+See [Installation](./installation.md)
 
 -----
 
