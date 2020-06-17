@@ -1,4 +1,4 @@
-The Style.Tools [CSS optimization widget](../README.md) provides access to an advanced duplicate CSS remover.
+The free Style.Tools [CSS optimization widget](../README.md) provides access to an advanced duplicate CSS remover.
 
 # Usage
 

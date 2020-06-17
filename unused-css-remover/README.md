@@ -1,4 +1,4 @@
-The Style.Tools [CSS optimization widget](../README.md) provides access to an advanced unused CSS extractor and remover.
+The free Style.Tools [CSS optimization widget](../README.md) provides access to an advanced unused CSS extractor and remover.
 
 The unused CSS extractor uses the same technology as the Critical CSS generator and supports the same [UI actions](critical-css-generator/advanced-ui-actions.md) for Puppeteer-like browser control.
 
