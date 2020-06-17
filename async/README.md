@@ -22,6 +22,8 @@ npm install @style.tools/async --save
 composer require styletools/async
 ```
 
+-----
+
 $async is designed as the ultimate CSS and script loader for modern frontend optimization (FEO). It provides state of the art features, the absolute best performance and the tiniest HTML footprint. $async supports all browsers including IE9+.
 
 - 100% JSON controlled.
