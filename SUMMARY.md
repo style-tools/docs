@@ -2,13 +2,13 @@
 
 * [CSS optimization widget](README.md)
 
-* [$async - async CSS/script loader](async/README.md)
+* [$async - async loader](async/README.md)
   * [Installation](async/installation.md)
   * [Usage](async/usage.md)
     * [Capture](async/usage-capture.md)
   * [IIFE generator](async/iife-generator.md)
 
-* [$lazy - IntersectionObserver loader](lazy/README.md)
+* [$lazy - IntersectionObserver](lazy/README.md)
   * [$lazybg](lazy/lazybg.md)
 
 * [Critical CSS Generator](critical-css-generator/README.md)
