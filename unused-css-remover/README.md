@@ -62,4 +62,4 @@ The options enable to fine tune the PostCSS parser, what selectors and propertie
 
 `ui_actions` accepts the same configuration as the Critical CSS generator. 
 
-- [UI actions documentation](./advanced-ui-actions.md)
+- [UI actions documentation](../critical-css-generator/advanced-ui-actions.md)
