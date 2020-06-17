@@ -30,7 +30,7 @@ The generator goes a few steps further than Penthouse.js. It uses [PostCSS](http
 
 What makes the generator truly different is that it outputs pure and unfiltered Critical CSS and does not apply any compression or optimization techniques. The output of the generator is thereby reliable. No CSS code goes missing without the control of the configuration.
 
-Professional CSS code optimization solutions such as [clean-css](https://github.com/jakubpawlowicz/clean-css), also available in the CSS optimization widget, are able to provide perfect quality code optimization and compression. The final result is thereby better (better compression and more accurate) than that of tools such as Penthouse.js and Critical.
+Professional CSS code optimization solutions such as [clean-css](https://github.com/jakubpawlowicz/clean-css) are also available in the CSS optimization widget and can provide perfect quality code optimization and compression. The final result is thereby better (better compression and more accurate) than that of other tools.
 
 - [View usage documentation](./advanced-usage.md)
 - [View UI actions documentation](./advanced-usage.md)
