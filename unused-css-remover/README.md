@@ -18,7 +18,9 @@ Simple mode applies the default configuration based on the viewport size and scr
 
 ## Advanced mode
 
-Advanced mode provides many options for tuning the unused CSS extractor and PostCSS parser. The configuration of the unused CSS extractor is available in a [JSON schema](https://style.tools/json-schemas/unused-css-remover.json).
+Advanced mode provides many options for tuning the unused CSS extractor and PostCSS parser. 
+
+The configuration is 100% JSON and is available in a [JSON schema](https://style.tools/json-schemas/unused-css-remover.json).
 
 # Configuration
 
