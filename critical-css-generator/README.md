@@ -1,44 +1,42 @@
-The Critical CSS generator is part of the 📐 Style.Tools browser widget (see [introduction](../README.md)).
+The Style.Tools CSS optimization widget provides access to an advancd Critical CSS generator.
 
-There are two different Critical CSS generators:
+The widget provides two different Critical CSS generators:
 
-1. A simple generator inspired by [this snippet](https://gist.github.com/PaulKinlan/6284142).
-2. A generator based on [PostCSS](https://github.com/postcss/postcss) CSS parser.
+1. A simple and quick generator inspired by a [snippet](https://gist.github.com/PaulKinlan/6284142) by a Google engineer.
+2. An advanced generator based on [PostCSS](https://github.com/postcss/postcss) with Puppeteer-like browser control.
 
-# Generators
-
-## Simple generator
+# Simple generator
 
 The simple Critical CSS generator is based on a browser-trick that was originally published by Google engineer Paul Kinlan. The snippet uses a Chrome innovation called `getMatchedCSSRules` that was deprecated and has been removed since Chrome 63.
 
 https://gist.github.com/PaulKinlan/6284142
 
-The simple Critical CSS generator uses an enhanced version of the snippet and supports modern browsers via a [polyfill](https://github.com/ovaldi/getMatchedCSSRules). An added feature is the ability to set the viewport to support responsive designs.
+The simple Critical CSS generator uses an enhanced version of the snippet and supports modern browsers via a [polyfill](https://github.com/ovaldi/getMatchedCSSRules) for `getMatchedCSSRules`. An added feature is the ability to set the viewport to support responsive designs.
 
-### Quality
+## Quality
 
-The quality of the simple critical CSS generator is often not that well but it can provide a good start base for designers that want to manually write pixel perfect Critical CSS.
+The quality of the simple critical CSS generator is often not that well but it can provide a quick extract.
 
-## Advanced generator
+# Advanced generator
 
-The advanced Critical CSS generator is based on PostCSS parser. The generator can provide a much better result (more accurate and better compression) than the leading tools [Penthouse.js](https://github.com/pocketjoso/penthouse/) and [Critical](https://github.com/addyosmani/critical). Some of the unique features of the generator are the support for multiple viewports (responsive designs) and async script-injected stylesheets. 
+The advanced Critical CSS generator is based on [PostCSS](https://github.com/postcss/postcss) and can provide 100% accuracy for the most complex designs. The generator provides Puppeteer-like browser control that enables to discover CSS that may be applicable by browser activity such as scripts, events and scrolling.
 
-The advanced generator can produce pixel-perfect responsive Critical CSS with a single click when configured correctly. The generator can save optimization specialists a lot of time.
+## JSON configuration
 
-# Comparison with other generators
+The advanced generator is 100% JSON controlled which enables to easily re-use configuration so that in practice, the extract of critical CSS can be done in a few seconds.
 
-The advanced Critical CSS generator goes a few steps further than Penthouse.js. It uses PostCSS instead of [csstree](https://github.com/csstree/csstree) for improved CSS parsing and it is enhanced in many ways to provide a better quality (more accurate) result, for example by enabling to calculate the Critical CSS based on multiple viewports.
+## The best result
 
-What makes the generator truly different is that it outputs pure and unfiltered Critical CSS and does not apply any compression or optimization techniques. The output of the generator is thereby reliable. No CSS code goes missing without the control of the designer.
+The Style.Tools Critical CSS generator is custom developed and provides a much better result than the leading open source tools such as [Penthouse.js](https://github.com/pocketjoso/penthouse/) and [Critical](https://github.com/addyosmani/critical). 
 
-Professional CSS code optimization solutions such as [clean-css](https://github.com/jakubpawlowicz/clean-css) are able to provide perfect quality code optimization and compression. The final result is thereby better (better compression and more accurate) than from tools such as Penthouse.js and Critical.
+The advanced Critical CSS generator goes a few steps further than Penthouse.js. It uses PostCSS instead of [csstree](https://github.com/csstree/csstree) for improved CSS parsing (for example: it accepts malformed CSS) and it is enhanced in many ways to provide a more accurate result.
 
-# About Critical CSS
+## Raw unfiltered output: pure critical CSS
 
-For best website performance, Google PageSpeed Insights [recommends](https://developers.google.com/speed/docs/insights/PrioritizeVisibleContent) inlining the critical (above-the-fold) CSS of a page directly into the HTML. This eliminates additional roundtrips and allows the browser to paint the above-fold experience to a user's screen sooner. This is especially of great impact on mobile devices.
+What makes the generator truly different is that it outputs pure and unfiltered Critical CSS and does not apply any compression or optimization techniques. The output of the generator is thereby reliable. No CSS code goes missing without the control of the configuration.
 
-Creating critical CSS has remained difficult. A professional tool named [Penthouse.js](https://github.com/pocketjoso/penthouse) has been the best solution. The tool [Critical](https://github.com/addyosmani/critical) made by a Google engineer uses Penthouse.js under the hood.
+Professional CSS code optimization solutions such as [clean-css](https://github.com/jakubpawlowicz/clean-css) are able to provide perfect quality code optimization and compression. The final result is thereby better (better compression and more accurate) than that of tools such as Penthouse.js and Critical.
 
-The following Github page created by a Google engineer shows a detailed overview of available solutions:
+# Google Cloud bases automation
 
-https://github.com/addyosmani/critical-path-css-tools
+[PageSpeed.PRO](https://pagespeed.pro) can provide the advanced Critical CSS generator as an *automated solution* based on Google Cloud infrastructure. For more information, visit [https://pagespeed.pro/google-cdn/](https://pagespeed.pro/google-cdn/).
