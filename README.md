@@ -20,9 +20,8 @@ Style.Tools provides access to advanced technologies for CSS optimization includ
 - [PostCSS](https://github.com/postcss/postcss) plugins: autoprefixer and many more
 - Above-the-fold optimizer
 
+# CMS integration and plugins
 
-# CMS integration
-
-Style.Tools is integrated in professional optimization libraries and CMS plugins including a [WordPress FEO plugin](https://pagespeed.pro/wordpress/) and Google Cloud CDN FEO solution (CMS independent solution). 
+Style.Tools is integrated in professional optimization libraries and CMS plugins including a [WordPress FEO plugin](https://pagespeed.pro/wordpress/) and a [Google Cloud CDN FEO solution](https://pagespeed.pro/google-cdn/). 
 
 For more information, see [https://pagespeed.pro/](https://pagespeed.pro/) (author of the Style.Tools project)
