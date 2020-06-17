@@ -29,22 +29,18 @@ javascript:(function(r,a,k,l,f,g,b,m){function n(c,b,d){a.open();b&&(r.onmessage
 '.</h2><h3>Redirecting <a href="'+h+'">'+h+"</a>...</h3>";b=k(function(){a.location.href=h},3E3)}}var q;n("<h2>Loading "+g+" via Service Worker...</h2><iframe src="+f+'go height=50></iframe><p id="e"></p>',function(a){q=1;b&&l(b);n("<script>"+a.data+"\x3c/script>")},p);b=k(p,2E3)};a.head.appendChild(c)})(window,document,setTimeout,clearTimeout);
 ```
 
-Source: https://github.com/style-tools/widget/blob/master/widget.js (849 Bytes)
-
-The code can be used from the browser console or simply initiated using a custom function on a website.
-
-## Creating a bookmark
-
-You can use the bookmark functionality of your browser to create a new bookmark. The short cut in Google Chrome and Firefox is `Ctrl-D`.
-
 ![Add a new bookmark](../gitbook/images/add-bookmark.png)
 
-Once the bookmark is added, you can drag it to the bookmarks bar for quick access.
+Source of widget:
+https://github.com/style-tools/widget/blob/master/widget.js (849 Bytes)
 
-![🔬 Style.Tools bookmark](../gitbook/images/browser-bookmark.png)
+Visit [https://style.tools/][https://style.tools] for instructions and a easy drag&drop link to install the widget in the browser bookmarks or favorites bar.
 
-### Drag & drop to bookmarks bar
 
-🔬 Style.Tools provides a drag & drop link via the logo (top left). It will automatically create the correct widget link in the bookmarks.
+# CMS integration and plugins
 
-![Drag & drop bookmark from 🔬 Style.Tools](../gitbook/images/drag-bookmark.png)
+Style.Tools is integrated in professional optimization libraries and CMS plugins including a [WordPress FEO plugin](https://pagespeed.pro/wordpress/) and a [Google CDN FEO solution](https://pagespeed.pro/google-cdn/). 
+
+For more information, see [https://pagespeed.pro/](https://pagespeed.pro/)
+
+[![](../gitbook/images/psp-concept.jpg)](https://pagespeed.pro/)

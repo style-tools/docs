@@ -1,8 +1,6 @@
 # Table of contents
 
-* [Introduction](README.md)
-
-* [CSS optimization widget](feo/README.md)
+* [CSS optimization widget](README.md)
 
 * [$async CSS/script loader](async/README.md)
   * [Installation](async/installation.md)
