@@ -12,6 +12,8 @@ The simple Critical CSS generator uses an enhanced version of the snippet and su
 
 The quality of the simple critical CSS generator is often not that well but it can provide a quick extract.
 
+- [View usage documentation](./simple-usage.md)
+
 # Advanced generator
 
 The advanced Critical CSS generator is based on [PostCSS](https://github.com/postcss/postcss) and can provide 100% accuracy for complex designs. The generator provides Puppeteer-like browser control that enables to discover CSS that may be applicable by browser activity such as scripts, events and scrolling.
@@ -31,6 +33,9 @@ The generator goes a few steps further than Penthouse.js. It uses [PostCSS](http
 What makes the generator truly different is that it outputs pure and unfiltered Critical CSS and does not apply any compression or optimization techniques. The output of the generator is thereby reliable. No CSS code goes missing without the control of the configuration.
 
 Professional CSS code optimization solutions such as [clean-css](https://github.com/jakubpawlowicz/clean-css), also available in the CSS optimization widget, are able to provide perfect quality code optimization and compression. The final result is thereby better (better compression and more accurate) than that of tools such as Penthouse.js and Critical.
+
+- [View usage documentation](./advanced-usage.md)
+- [View UI actions documentation](./advanced-usage.md)
 
 # Google Cloud bases automation
 
