@@ -1,4 +1,4 @@
-The free Style.Tools [CSS optimization widget](../README.md) provides access to two different Critical CSS generators: Simple and Advanced.
+The free [CSS optimization widget](../README.md) provides access to two different Critical CSS generators: Simple and Advanced.
 
 # Simple generator
 
