@@ -14,7 +14,7 @@ Style.Tools provides access to advanced technologies for CSS optimization includ
 - Duplicate CSS extractor and remover (unique innovation)
 - CSS beautify
 - CSS code optimization ([clean-css](https://github.com/jakubpawlowicz/clean-css))
-- CSS repair (fix malformed CSS)
+- CSS code repair (fix malformed CSS)
 - CSS lint (quality checks)
 - CSS statistics (analysis)
 - [PostCSS](https://github.com/postcss/postcss) plugins: autoprefixer and many more
@@ -25,3 +25,5 @@ Style.Tools provides access to advanced technologies for CSS optimization includ
 Style.Tools is integrated in professional optimization libraries and CMS plugins including a [WordPress FEO plugin](https://pagespeed.pro/wordpress/) and a [Google Cloud CDN FEO solution](https://pagespeed.pro/google-cdn/). 
 
 For more information, see [https://pagespeed.pro/](https://pagespeed.pro/) (author of the Style.Tools project)
+
+![](../gitbook/images/psp-concept.jpg)
