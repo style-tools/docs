@@ -8,7 +8,7 @@
 
 * [Unused CSS Extractor/Remover](unused-css-remover/README.md)
 
-* [Duplicate CSS Extractor/Remover](duplicate-css-remover/README.md)
+* [Duplicate CSS Extractor](duplicate-css-remover/README.md)
   * [Usage](duplicate-css-remover/usage.md)
 
 * [$async - async loader](async/README.md)
