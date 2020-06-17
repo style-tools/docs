@@ -2,7 +2,7 @@
 
 The [Style.Tools](https://style.tools/) project started as a free browser-widget that provides a sort of DevTools (developer tools) for frontend optimization (FEO).
 
-Style.Tools is available with 1 click on any page on the internet, including pages behind a login.
+Style.Tools is available with 1 click **on any page on the internet**, including pages behind a login.
 
 ![Style.Tools CSS optimization widget](../gitbook/images/styletools-widget.gif)
 
