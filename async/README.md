@@ -1,119 +1,275 @@
-# Introduction
-
-[@style.tools/async](https://npmjs.com/package/@style.tools/async) is lightweight asynchronous CSS and Javascript loader.
+[$async](https://github.com/style-tools/async/) is a lightweight and high performance async CSS and script loader. 
 
 ```javascript
-$async(
-   [/*stylesheets*/],	// string, object or an array of strings or objects
-   {/*options*/},			// object
-   [/*capture*/],			// string, object or an array of strings or objects 
-   {/*capture options*/}		// object
+// simple: stylesheet
+$async('sheet.css').then(function() { /* ready */ });
 
-   /* 5 to 8th = javascript loader, same config as CSS loader */
-   [],{},[],{}
-).then(function() { /* ready */ });	
-
-$async.js([],{},[],{}) // direct access to javascript loader
+// simple: script
+$async.js('script.js').then(function() { /* ready */ });
 ```
 
-### Features
+# Installation
 
-1. Dependency, responsive and timed download and/or render/exec.
-2. [in-view](https://github.com/camwiegert/in-view) (element in view) based loading.
-3. `requestAnimationFrame` and `requestIdleCallback` (smooth rendering/exec based on CPU)
-4. Chainable and events.
-5. `localStorage` or [Cache API](https://developer.mozilla.org/en-US/docs/Web/API/Cache) based loading (much faster, see [css-art.com](https://css-art.com))
-6. Async injected stylesheet and script capture via `MutationObserver` or DOM insert method rewriting.
-7. Fallback via `try {} catch` and `<noscript rel="css">`.
-8. Google Closure Compiler with Advanced Optimizations based script compression (IIFE).
-9. HTML data-attribute `data-c` based JSON config to enable Content-Security-Policy (CSP) with page-based config.
-10. [Performance API](https://developer.mozilla.org/en-US/docs/Web/API/Performance) timings for debugging and optimization.
-
-### Install via npm
+## via npm
 
 ```bash
 npm install @style.tools/async --save
 ```
 
-### Install via PHP Composer
+## via PHP Composer
 
 ```bash
 composer require styletools/async
 ```
 
-The script is optimized to achieve the minimum size possible for above the fold optimization.
+$async is designed as the ultimate CSS and script loader for modern frontend optimization (FEO). It provides state of the art features, the absolute best performance and the tiniest HTML footprint. $async supports all browsers including IE9+.
 
-```text
-async-core.js Size: 2.04 kb (2089 bytes) Gzip: 0.99 kb (1012 bytes).
-event-emitter.js Size: 0.47 kb (482 bytes) Gzip: 0.24 kb (245 bytes).
-debug.js Size: 0.13 kb (130 bytes) Gzip: 0.13 kb (135 bytes).
-css-loader.js Size: 1.07 kb (1094 bytes) Gzip: 0.63 kb (646 bytes).
-js-loader.js Size: 1.83 kb (1876 bytes) Gzip: 1.01 kb (1032 bytes).
-inline-js.js Size: 0.38 kb (390 bytes) Gzip: 0.27 kb (278 bytes).
-rebase.js Size: 0.12 kb (124 bytes) Gzip: 0.12 kb (124 bytes).
-regex.js Size: 0.14 kb (142 bytes) Gzip: 0.14 kb (144 bytes).
-vendor.js Size: 0.18 kb (187 bytes) Gzip: 0.17 kb (169 bytes).
-api.js Size: 0.25 kb (256 bytes) Gzip: 0.18 kb (187 bytes).
-dependency.js Size: 0.71 kb (727 bytes) Gzip: 0.41 kb (418 bytes).
-timing.js Size: 0.71 kb (726 bytes) Gzip: 0.41 kb (415 bytes).
-inview.js Size: 0.92 kb (944 bytes) Gzip: 0.55 kb (566 bytes).
-responsive.js Size: 0.26 kb (267 bytes) Gzip: 0.20 kb (201 bytes).
-cache.js Size: 1.35 kb (1381 bytes) Gzip: 0.76 kb (776 bytes).
-cache-css.js Size: 0.32 kb (325 bytes) Gzip: 0.24 kb (242 bytes).
-cache-js.js Size: 0.05 kb (55 bytes) Gzip: 0.07 kb (71 bytes).
-localstorage.js Size: 0.43 kb (438 bytes) Gzip: 0.28 kb (284 bytes).
-cache-api.js Size: 0.62 kb (632 bytes) Gzip: 0.34 kb (353 bytes).
-xhr.js Size: 0.83 kb (849 bytes) Gzip: 0.49 kb (503 bytes).
-cache-update.js Size: 0.15 kb (152 bytes) Gzip: 0.13 kb (134 bytes).
-capture.js Size: 1.23 kb (1259 bytes) Gzip: 0.71 kb (723 bytes).
-capture-observer.js Size: 0.26 kb (263 bytes) Gzip: 0.20 kb (208 bytes).
-capture-insert.js Size: 0.34 kb (348 bytes) Gzip: 0.22 kb (224 bytes).
-capture-css.js Size: 0.14 kb (141 bytes) Gzip: 0.13 kb (131 bytes).
-capture-js.js Size: 0.07 kb (69 bytes) Gzip: 0.08 kb (87 bytes).
-attr-config.js Size: 0.29 kb (293 bytes) Gzip: 0.22 kb (229 bytes).
+- 100% JSON controlled.
+- Google Closure Compiler (GCC) with _Advanced mode_ script compression (reliable and performant in all browsers).
+
+# Modular
+$async is modular and easy to use: select only the features that are needed to achieve the tiniest script size.
+- simply stitch pre-optimized GCC modules together for a performant IIFE. You can wrap the modules in [dist/](./dist/) into an IIFE, e.g. `!function(){/* stitched modules */}();`. Follow the module order in [package.json](./package.json).
+- [Online IIFE generator](https://style.tools/iife/) (adds an extra GCC _Advanced mode_ compression layer)
+- [Node.js/CLI IIFE generator](https://github.com/style-tools/async-iife) (adds an extra GCC _Advanced mode_ compression layer)
+- PHP IIFE generator (available on request: info@style.tools)
+
+# Chainable
+```javascript
+$async
+   .on('load',function(sheet, sheetEl){
+      //  sheet.css or other-sheet.css loaded
+   }) 
+   .on('sheet-ref',function() { }) // sheet with ref-name loaded
+   .on('sheet.css', function() {}); // sheet with href loaded
+   .load({
+      href: 'sheet.css', 
+      ref: 'sheet-ref'
+   })
+   .then(function() { }) // sheet.css loaded
+   .load('other-sheet.css');
 ```
 
----
-
-### JSON config
-
-The configuration of `window.$async` is based on JSON that can be verified using [JSON schemas](https://github.com/style-tools/async/tree/master/json-schemas). Visit [https://json-schema.org](https://json-schema.org) for info about JSON schemas.
-
-A JSON compression innovation enables to compress the JSON using numeric indexes to reduce the size to a minimum. Using a global rebasing configuration, the string-size for individual stylesheet or script URLs can be compressed as well.
-
-HTML data-attribute `data-c` based configuration makes it possible to securely use dynamic page-based configuration with a strict Content-Security-Policy (CSP).
-
-#### Example usage
-
-Non-compressed.
-
+# Security
+$async supports a strict Content-Security-Policy (CSP) and SRI security by using a HTML attribute on the script element. The `data-c` attribute accepts JSON config.
 ```html
-<!-- pre-generated IIFE -->
-<script src="async-iife.js"></script>
-<script>
-	// default (first 4 for css-loader/capture)
-	$async(["css/style.css", {"href": "css/extra.css", "load_timing": "domReady"}]);
-
-	// js-loader only (first 4 for js-loader/capture)
-	$async(["js/script.css", {"src": "js/extra.jss", "load_timing": "requestIdleCallback"}]);
-
-	// when using css-loader + js-loader, $async accept 8 parameters (last 4 for js-loader/capture)
-	$async(0,0,0,0,["js/script.css", {"src": "js/extra.js", "load_timing": "requestIdleCallback"}]);
-
-	// when using css-loader + js-loader, $async.js provides direct access to js-loader/capture
-	$async.js(["js/script.js", {"src": "js/extra.js", "load_timing": "requestIdleCallback"}]);
-
-	// direct access to capture config
-	$async.capture(
-		[/*capture*/],			// string, object or an array of strings or objects 
-   		{/*capture options*/}
-   	);
-	$async.js.capture([],{});
-</script>
+<script async src="js/async.js" data-c='[
+   [
+      "css/sheet1.css",
+      {
+         "href": "https://cdn.com/css/sheet2.css",
+         "attributes": {
+            "integrity": "sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC",
+            "crossorigin": "anonymous"
+         }
+      }
+   ]
+]'></script>
 ```
 
-Compressed + using `data-c` attribute config. The attribute accepts a JSON array with 8 values. The first 4 for the css-loader/capture, the last 4 for the js-loader/capture.
+# Advanced download and exec/render timing
+$async provides advanced loading and timing techniques.
+- control the insert target.
+- time the download and/or exec/render using methods such as `requestAnimationFrame`, `requestIdleCallback` and [$lazy](https://github.com/style-tools/lazy) (Intersection Observer).
+- dependency based loading.
+- responsive `Media Query` based loading with cross-browser support for viewport changes.
+- `just-in-time` loading using a custom javascript method.
+```javascript
+$async(
+   [
+      "sheet.css",
+      {
+         href:"other-sheet.css",
+         dependencies: ["sheet.css"], // wait for sheet.css via dependencies
+         load_timing: {
+            type: "lazy", // use $lazy for timing (Intersection Observer)
+            config: [".selector-in-view", 0, "200px"], // visible within 200 pixels
+         },
+         ref: "other"
+      }, 
+      {
+         href:"mobile-sheet.css",
+         dependencies: "other", // dependency by ref
+         target: {
+            after: "meta[charset]" // control insert target
+         },
+         load_timing: {
+            type: "media", // download stylesheet based on a media query (works with viewport changes, e.g. viewport rotate)
+            media: "screen and (max-width: 600px)"
+         }
+      }
+   ],
+   /* global options: applied to all stylesheets */
+   {
+      // base directory for relative sheet URLs
+      base: "/long/path/to/css/",
 
-```html
-<script async src="async-iife.js" data-c='[["css/style.css",{"4":"css/extra.css","21":27}],0,0,0,["js/script.css", {"src": "js/extra.jss", "load_timing": "requestIdleCallback"}]]'></script>
+      // render timing: paint sheet with requestAnimationFrame
+      render_timing: "requestAnimationFrame"
+   } 
+)
+.then(function() { /* ready */ });
 ```
+
+#  `just-in-time` loading
+```javascript
+$async({
+   href:"popup-css.css",
+   load_timing: {
+      type: "method", // trigger download using custom javascript method
+      method: "load_popup_css"
+   }
+}).js({
+   src:"popup-script.js",
+   load_timing: {
+      type: "method",
+      method: "load_popup_js"
+   }
+});
+
+// just-in-time loading
+jQuery('button.popup').on('click', function() {
+
+   // user clicks a button
+   // load popup script/css just-in-time
+
+    load_popup_css().then(function() {
+      alert('popup CSS loaded');
+    });
+
+    load_popup_js().then(function() {
+      alert('popup script loaded');
+    });
+});
+```
+# API's 
+$async provides API's for access to the dependency resolver and timing methods.
+```javascript
+// dependency resolver
+$async.dependencies(['name'], function() { /* dependency loaded */ });
+
+// timing method
+$async.time("requestAnimationFrame", function() { /* callback */ });
+$async.time(48, function() {}); // the same using JSON compression
+```
+# `localStorage` cache
+$async enables to load stylesheets and script from `localStorage` or [Cache API](https://developer.mozilla.org/en-US/docs/Web/API/Cache) cache which is much faster than browser cache. 
+
+For a demo, see [css-art.com](https://css-art.com).
+
+```javascript
+$async({
+   href: "sheet.css",
+   cache: {
+      type: "localstorage",
+      max_size: 10000, // cache only <10kb
+      fallback: "cache-api", // fallback to Cache-API for bigger sheets
+      update: {
+         head: true, // use HTTP HEAD request to check for 304 - Not Modified
+         interval: 86400 // update once per day
+      },
+
+      // control the source methods
+      source: ["cssText","xhr","cors"], // default
+
+      // optional: CORS proxy for retrieving the source code from external stylesheet URLs
+      cors: {
+         proxy: "https://cors-anywhere.herokuapp.com/", // more proxies on https://gist.github.com/jimmywarting/ac1be6ea0297c16c477e17f8fbe51347
+      },
+
+      // custom XHR config
+      xhr: {
+         headers: {
+            "x-special-header": "secret-key" // request header to include in XHR requests
+         }
+      }
+   }
+});
+```
+# JSON compression
+$async provides a JSON compression technique to minimize the size of configuration. 
+
+[Online compressor](https://style.tools/iife/) | [Node.js/CLI](https://github.com/style-tools/async-iife)
+```javascript
+/* original config: 
+{
+   "href":"other-sheet.css",
+   "dependencies": ["sheet.css"],
+   "load_timing":{
+      "type":"lazy",
+      "config": [".selector-in-view",0,"200px"]
+   },
+   "ref":"other"
+} */
+
+// compressed
+$async({"4":"other-sheet.css","15":["sheet.css"],"16":"other","48":{"2":62,"89":[".selector-in-view",0,"200px"]}});
+```
+# Async script-injected stylesheet/script capture
+$async provides an innovation to capture and rewrite, remove or modify/optimize script-injected stylesheets and scripts.
+- rewrite
+- remove
+- modify
+- optimize (code optimization, apply timing, responsive loading, dependencies etc.)
+```javascript
+// capture and remove async script-injected sheet
+$async.capture(
+   [
+      {
+         match: "bloated-sheet.css",
+         action: {
+            "type": "remove"
+         }
+      },
+      {
+         match: "/<script[^>]+bloated-script-id[^>]+>/",
+         regex: true,
+         match_type: "node",
+         action: {
+            "type": "remove"
+         }
+      },
+      {
+         match: "external-widget.com",
+         action: {
+            type: "rewrite",
+            search: '/^.*cdn\.external-widget\.com/(.*).css$',
+            regex: true,
+            replace: "/local-nginx-proxy/$1.css",
+            async: {
+               "load_timing": "requestIdleCallback",
+               "target": {
+                  "after": "media[charset]"
+               },
+               "attributes": {
+                  "data-cdn": "external-widget.com"
+               }
+            }
+         }
+      },
+      {
+         match: "customer-review.js",
+         action: {
+            async: { 
+               "load_timing": {
+                  type: 'lazy',
+                  config: '#customer-review' // load script when customer review widget enters viewport
+               }
+            }
+         }
+      }
+   ],
+   {
+      insert: true // use DOM insert method rewriting
+      // observer: true // alternative: use MutationObserver
+   }
+);
+```
+# Performance API timings for loading performance optimization
+$async provides a debug mode with advanced [Performance API](https://developer.mozilla.org/en-US/docs/Web/API/Performance) timings that enables to analyse and optimize the CSS and script loading performance.
+
+![$async demo](./async-debug-console.png)
+
+## Demo
+
+$async is in use on www.e-scooter.co (demo website) and [css-art.com](https://css-art.com) (test environment).
