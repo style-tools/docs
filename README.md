@@ -10,15 +10,15 @@ Style.Tools provides access to advanced technologies for CSS optimization includ
 
 - CSS editor with themes
 - Critical CSS generator
-- Unused CSS remover
+- Unused CSS extractor and remover
 - Duplicate CSS extractor and remover (unique innovation)
 - CSS beautify
 - CSS code optimization ([clean-css](https://github.com/jakubpawlowicz/clean-css))
 - CSS repair (fix malformed CSS)
-- extract unused and duplicate CSS (for automated unused CSS removal)
 - CSS lint (quality checks)
 - CSS statistics (analysis)
 - [PostCSS](https://github.com/postcss/postcss) plugins: autoprefixer and many more
+- Above-the-fold optimizer
 
 
 # CMS integration
