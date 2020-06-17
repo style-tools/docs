@@ -44,8 +44,8 @@ $async is chainable and provides an API.
 ```javascript
 // alternative load method for chaining when using the API module
 $async
-  .load(/*...*/)
-  .load(/*...*/)
+  .load(/*...*/) // CSS loader that accepts 8 arguments
+  .js(/**/) // javascript loader only
   .then(function() { /* ready */ });
 ```
 
