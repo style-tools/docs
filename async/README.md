@@ -258,4 +258,4 @@ $async provides a debug mode with advanced [Performance API](https://developer.m
 
 # Demo
 
-$async is in use on www.e-scooter.co (demo website) and [css-art.com](https://css-art.com) (test environment).
+$async is in use on [www.e-scooter.co](https://www.e-scooter.co/) (demo website) and [css-art.com](https://css-art.com) (test environment).
