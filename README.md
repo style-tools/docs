@@ -20,6 +20,8 @@ Style.Tools provides access to advanced technologies for CSS optimization includ
 - [PostCSS](https://github.com/postcss/postcss) plugins: autoprefixer and many more
 - Above-the-fold optimizer
 
+The widget provides **localhost and offline support** via a Service Worker on domain [style.tools](https://style.tools/). You can use many of the features locally without an internet connection. The cache for preferences is also preserved across domains which makes it efficient when working on multiple websites.
+
 # CMS integration and plugins
 
 Style.Tools is integrated in professional optimization libraries and CMS plugins including a [WordPress FEO plugin](https://pagespeed.pro/wordpress/) and a [Google Cloud CDN FEO solution](https://pagespeed.pro/google-cdn/). 
