@@ -1,4 +1,4 @@
-The Style.Tools CSS optimization widget provides access to an advancd Critical CSS generator.
+The Style.Tools [CSS optimization widget](https://style.tools/) provides access to an advanced Critical CSS generator on any page on the internet, including pages behind a login.
 
 The widget provides two different Critical CSS generators:
 
