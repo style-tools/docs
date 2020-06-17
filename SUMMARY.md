@@ -16,7 +16,6 @@
   * [UI actions](critical-css-generator/advanced-ui-actions.md)
 
 * [Unused CSS Remover](unused-css-remover/README.md)
-  * [Usage](unused-css-remover/usage.md)
 
 * [Duplicate CSS Remover](duplicate-css-remover/README.md)
   * [Usage](duplicate-css-remover/usage.md)
