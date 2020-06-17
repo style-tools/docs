@@ -1,10 +1,6 @@
-The advanced Critical CSS generator provides many options for tuning the generator and PostCSS parser.
+The advanced critical CSS generator is part of the Style.Tools [CSS optimization widget](./README.md).
 
 The configuration is 100% JSON and is availale in a [JSON schema](https://style.tools/json-schemas/critical-css-generator.json).
-
-# Setup
-
-The critical CSS generator is part of the Style.Tools [CSS optimization widget](./README.md).
 
 ![Critical CSS extract](../gitbook/images/critical-css-extract.gif)
 
