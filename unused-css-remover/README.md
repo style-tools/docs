@@ -10,19 +10,19 @@ The unused CSS extractor provides three output options:
 
 # Usage
 
-The unused CSS remover provides two modes: `Simple` and `Advanced`.
+The unused CSS extractor provides two modes: `Simple` and `Advanced`.
 
-# Simple mode
+## Simple mode
 
 Simple mode applies the default configuration based on the viewport size and scroll position defined by the Critical CSS window.
 
-# Advanced mode
+## Advanced mode
 
-Advanced mode provides many options for tuning the unused CSS remover and PostCSS parser. The configuration of the unused CSS remover is available in a [JSON schema](https://style.tools/json-schemas/unused-css-remover.json).
+Advanced mode provides many options for tuning the unused CSS extractor and PostCSS parser. The configuration of the unused CSS extractor is available in a [JSON schema](https://style.tools/json-schemas/unused-css-remover.json).
 
-## Configuration
+# Configuration
 
-By default, the unused CSS remover simply performs the unused CSS remover process on the basis of the active Critical CSS window.
+By default, the unused CSS extractor simply performs the unused CSS extractor process on the basis of the active Critical CSS window.
 
 ```json
 {
