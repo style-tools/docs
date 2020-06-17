@@ -1,6 +1,6 @@
 The Style.Tools [CSS optimization widget](./README.md) provides access to an advanced Critical CSS generator.
 
-The widget provides two different Critical CSS generators: Simple and Advanced.
+The widget provides two different generators: Simple and Advanced.
 
 # Simple generator
 
@@ -35,7 +35,7 @@ Professional CSS code optimization solutions such as [clean-css](https://github.
 - [View usage documentation](./advanced-usage.md)
 - [View UI actions documentation](./advanced-usage.md)
 
-# Google Cloud bases automation
+# Google Cloud based automation
 
 [PageSpeed.PRO](https://pagespeed.pro) can provide the advanced Critical CSS generator as an **automated solution** based on Google Cloud infrastructure. 
 

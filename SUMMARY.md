@@ -12,8 +12,7 @@
   * [$lazybg](lazy/lazybg.md)
 
 * [Critical CSS Generator](critical-css-generator/README.md)
-  * [Usage: simple generator](critical-css-generator/simple-usage.md)
-  * [Usage: advanced generator](critical-css-generator/advanced-usage.md)
+  * [Advanced generator](critical-css-generator/advanced-usage.md)
   	* [Usage: UI actions](critical-css-generator/advanced-ui-actions.md)
 
 * [Unused CSS Remover](unused-css-remover/README.md)
