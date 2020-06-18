@@ -1,4 +1,6 @@
-The free [CSS optimization widget](../README.md) provides access to two different Critical CSS generators: Simple and Advanced.
+The free [CSS optimization widget](../README.md) provides access to two Critical CSS generators: Simple and Advanced.
+
+![Critical CSS extract](../gitbook/images/critical-css-extract.gif)
 
 # Simple generator
 
