@@ -1,8 +1,8 @@
-The free [CSS optimization widget](../README.md) provides access to an advanced unused CSS extractor and remover.
+The free [CSS optimization widget](../README.md) provides access to an advanced unused CSS remover and extractor.
 
-The unused CSS extractor uses the same technology as the Critical CSS generator and supports the same [UI actions](critical-css-generator/advanced-ui-actions.md) for Puppeteer-like browser control.
+The unused CSS remover uses the same technology as the Critical CSS generator and supports the same [UI actions](critical-css-generator/advanced-ui-actions.md) for Puppeteer-like browser control.
 
-The unused CSS extractor provides three output options:
+The unused CSS remover provides three output options:
 
 1. remove unused CSS from a stylesheet
 2. extract unused CSS into a new stylesheet
@@ -10,7 +10,7 @@ The unused CSS extractor provides three output options:
 
 # Usage
 
-The unused CSS extractor provides two modes: `Simple` and `Advanced`.
+The unused CSS remover provides two modes: `Simple` and `Advanced`.
 
 ## Simple mode
 
@@ -18,13 +18,13 @@ Simple mode applies the default configuration based on the viewport size and scr
 
 ## Advanced mode
 
-Advanced mode provides many options for tuning the unused CSS extractor and PostCSS parser. 
+Advanced mode provides many options for tuning the unused CSS remover and PostCSS parser. 
 
 The configuration is 100% JSON and is available in a [JSON schema](https://style.tools/json-schemas/unused-css-remover.json).
 
 # Configuration
 
-By default, the unused CSS extractor simply performs the unused CSS extractor process on the basis of the active Critical CSS window.
+By default, the unused CSS remover simply performs the unused CSS remover process on the basis of the active Critical CSS window.
 
 ```json
 {
