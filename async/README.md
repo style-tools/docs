@@ -1,11 +1,59 @@
 [$async](https://github.com/style-tools/async/) is a lightweight and high performance async CSS and script loader. 
 
-```javascript
-// simple: stylesheet
-$async('sheet.css').then(function() { /* ready */ });
+A lightweight and high performance async CSS and script loader. It provides many state of the art innovations for the ultimate performance result.
 
-// simple: script
-$async.js('script.js').then(function() { /* ready */ });
+## Examples
+
+```javascript
+$async([
+   'sheet.css',
+   'script.js'
+]).then(function() { /* ready */ });
+```
+
+The script loader can be controlled from a HTML attribute which enables strict security. A unique innovation is async critical CSS.
+
+```html
+<!-- config via an HTML attribute -->
+<script async src="js/async-iife.js" data-x="/critical.css" data-c='[
+   [
+      "css/sheet1.css",
+      "js/script.js",
+      {
+         "href": "https://cdn.com/css/sheet2.css",
+         "attributes": {
+            "integrity": "sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC",
+            "crossorigin": "anonymous"
+         }
+      },
+      {
+         "src": "https://cdn.com/js/script2.js",
+         "attributes": {
+            "integrity": "sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC",
+            "crossorigin": "anonymous"
+         },
+         "load_timing": "domReady",
+         "ref": "x"
+      },
+      {
+         "src": "js/script3.js",
+         "dependencies": "x"
+      }
+   ],
+   {
+      "render_timing": "requestAnimationFrame",
+      "exec_timing": {
+         "type": "requestIdleCallback",
+         "timeout": 1000
+      }
+   }
+]'></script>
+```
+
+The config can be compressed to save size in the HTML (see [compressor](https://style.tools/async/)).
+
+```html
+<script async src="js/async-iife.js" data-c='[["css/sheet1.css","js/script.js",{"4":"https://cdn.com/css/sheet2.css","14":{"integrity":"sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC","crossorigin":"anonymous"}},{"5":"https://cdn.com/js/script2.js","14":{"integrity":"sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC","crossorigin":"anonymous"},"16":"x","48":54},{"5":"js/script3.js","15":"x"}],{"49":52,"60":{"2":53,"57":1000}}]'></script>
 ```
 
 $async is designed as the ultimate CSS and script loader for modern frontend optimization (FEO). It provides state of the art features, the absolute best performance and the tiniest HTML footprint. $async supports all browsers including IE9+.
