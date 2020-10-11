@@ -147,19 +147,19 @@ $async(
 
 #  `just-in-time` loading
 ```javascript
-$async({
+$async([{
    href:"popup-css.css",
    load_timing: {
       type: "method", // trigger download using custom javascript method
       method: "load_popup_css"
    }
-}).js({
+},{
    src:"popup-script.js",
    load_timing: {
       type: "method",
       method: "load_popup_js"
    }
-});
+}]);
 
 // just-in-time loading
 jQuery('button.popup').on('click', function() {
