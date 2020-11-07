@@ -189,9 +189,11 @@ To enable usage in combination with a strict `Content-Security-Policy` the scrip
 </script>
 ```
 
-Multiple configurations are supported via the special multi-token `||`. The token needs to be included at the begining and each configuration needs to be valid JSON.
+Multiple configurations are supported via the attribute `data-zz`. The attributes accepts a JSON array with configurations.
 
-`||{config...}||{second config...}`
+```html
+<script async src="dist/lazy+data-attr.js" data-zz='["selector",{config...},{second config...}]'></script>
+```
 
 ## Polyfill
 
