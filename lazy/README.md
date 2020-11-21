@@ -3,13 +3,14 @@
 [@style.tools/lazy](https://npmjs.com/package/@style.tools/lazy) is a lightweight lazy loader based on [Intersection Observer V2](https://developers.google.com/web/updates/2019/02/intersectionobserver-v2) with a tiny fallback for old browsers.
 
 ```javascript
-$lazy(
-   selector, /* string, Node, NodeList or observer config object */
-   inview, /* optional: custom in-view callback */
-   observer_callback, /* optional: custom observer callback */
-   webp /* disable WebP rewrite (when using lazy+webp.js) */
-);  
-``` 
+// simple: lazy load images
+$lazy('[data-src]');
+
+// simple: in-view callback
+$lazy('#element', function() {
+  // inview callback
+});
+```
 
 Lazy loading of `background-image` in stylesheets.
 
@@ -20,6 +21,45 @@ $lazybg(
   resolver, /* optional: JSON or javascript image resolver */
   webp /* disable WebP rewrite (when using lazybg+webp.js) */
 );
+```
+
+$lazy can be configured using an async script element.
+
+```html
+<script async src="dist/lazy+data-attr.js" data-z='selector' data-b='/base/path/'></script>
+```
+
+The script element accepts the following parameters:
+
+| Parameter                       | Description     | Type     |
+|--------------------------------|-----------------|-----------------|
+| `data-z`                |  | `String`    | Selector or config object.
+| `data-zz`                |  | `Array`    | Multiple selector or config objects.
+| `data-b`                |  | `String`    | Base path (URL rebasing).
+
+When using [$async.js](https://github.com/style-tools/async/), $lazy can be used as timing method with automated polyfill loading.
+
+```html
+<script async src="dist/async.js" data-c='[{
+   "src": "dist/intersectionobserver-polyfill.js",
+   "load_timing": {
+      "type": "method",
+      "method": "$lazypoly"
+    },
+    "cache": "localstorage"
+},{
+  "ref": "$z",
+  "src": "dist/lazy.js",
+  "attributes": {
+    "data-z": "[\".selector\", 0.006, \"0px\"]"
+  },
+  "load_timing": {
+    "type": "requestAnimationFrame",
+    "frame": -1
+  },
+  "cache": "localstorage"
+}]'></script>
+<!-- timing: requestAnimationFrame @ frame -1 = faster than domready event
 ```
 
 ### Install via npm
@@ -247,7 +287,7 @@ window.$lazypoly = function() {
 };
 ```
 
-When using `$async` you can alternatively use `window.$lazypoly` with a string or a object to pass to `$async.js` which could load anything.
+When using `$async` you can alternatively use `window.$lazypoly` with a string or a object to pass to `$async` which could load anything.
 
 Alternatively, when including `$lazy` inline, the `data-poly` attribute enables to define a string to pass to `$async.js`.
 
