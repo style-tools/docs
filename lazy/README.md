@@ -37,7 +37,7 @@ The script element accepts the following parameters:
 | `data-zz`                |  | `Array`    | Multiple selector or config objects.
 | `data-b`                |  | `String`    | Base path (URL rebasing).
 
-When using [$async.js](https://github.com/style-tools/async/), $lazy can be used as timing method with automated polyfill loading.
+When using [$async](https://github.com/style-tools/async/), $lazy can be used as timing method with automated polyfill loading.
 
 ```html
 <script async src="dist/async.js" data-c='[{
